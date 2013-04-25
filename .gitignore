@@ -11,3 +11,11 @@
 *.lai
 *.la
 *.a
+*.gz
+
+# Downloaded sources
+libav*
+qt-everywhere*
+
+# Build package
+bluecherry-client*

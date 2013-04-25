@@ -9,6 +9,7 @@ function installQt {
     installBuildDependencies
     downloadQtSources
     unpackQtSources
+    patchQtSources
 
     pushd $QT_SRC_DIR
     buildQtFromSources
@@ -35,8 +36,16 @@ function unpackQtSources {
     tar xzf $QT_SRC_FILE
 }
 
+function patchQtSources {
+    patch -p1 < 01-qt.patch
+}
+
 function buildQtFromSources {
-    ./configure -prefix /usr/lib/bluecherry/qt4.8/ -opensource -confirm-license -no-qt3support -openssl -opengl desktop -webkit -gtkstyle -qtlibinfix -bluecherry
+    ./configure -prefix /usr/lib/bluecherry/qt4.8/ -confirm-license -opensource \
+      -no-qt3support -no-xmlpatterns -openssl -opengl desktop -webkit -gtkstyle \
+      -qtlibinfix -bluecherry -nomake demos -nomake examples -no-dbus \
+      -no-multimedia -no-audio-backend -no-phonon -no-phonon-backend -no-svg \
+      -script -no-scripttools -declarative -no-declarative-debug -rpath -release
     make -j5
 }
 
