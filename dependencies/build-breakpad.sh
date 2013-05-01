@@ -4,8 +4,8 @@ BREAKPAD_SRC_REPOSITORY=http://google-breakpad.googlecode.com/svn/trunk/
 BREAKPAD_SRC_DIR=breakpad
 
 function installBreakpad {
-    #installBuildDependencies
-    #downloadBreakpadSources
+    installBuildDependencies
+    downloadBreakpadSources
 
     pushd $BREAKPAD_SRC_DIR
     buildFromSources
