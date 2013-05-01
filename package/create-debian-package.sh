@@ -30,5 +30,7 @@ git submodule init
 git submodule update
 find -name ".git*" | xargs rm -rf
 
+cp ../user.cmake ./
+
 debuild --prepend-path /usr/lib/bluecherry/qt4.8/bin -us -uc -sn -b -j5
 popd
