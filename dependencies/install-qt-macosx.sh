@@ -34,9 +34,9 @@ function unpackQtSources {
 }
 
 function buildQtFromSources {
-    ./configure -prefix /usr/lib/bluecherry/qt4.8/ -confirm-license -opensource \
+    ./configure -prefix /Users/vogel/dev/usr/lib/bluecherry/qt4.8/ -confirm-license -opensource \
       -no-qt3support -no-xmlpatterns -openssl -opengl desktop -webkit -gtkstyle \
-      -qtlibinfix -bluecherry -nomake demos -nomake examples -no-dbus \
+      -nomake demos -nomake examples -no-dbus \
       -no-multimedia -no-audio-backend -no-phonon -no-phonon-backend -no-svg \
       -script -no-scripttools -declarative -no-declarative-debug -rpath -release \
       -arcg x86
