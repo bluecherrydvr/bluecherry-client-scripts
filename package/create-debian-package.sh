@@ -15,10 +15,6 @@ if [ "!" == "!$VERSION" ]; then
         exit
 fi
 
-sudo apt-get install build-essential devscripts debhelper cmake
-sudo apt-get install git-core
-sudo apt-get install libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
-
 DEBIAN_PACKAGE_NAME=${PRODUCT}_${VERSION}
 DEBIAN_PACKAGE_DIR=${PRODUCT}-${VERSION}
 DEBIAN_PACKAGE_FILE=$DEBIAN_PACKAGE_NAME.orig.tar.gz

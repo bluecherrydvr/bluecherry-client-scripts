@@ -15,8 +15,6 @@ if [ "!" == "!$VERSION" ]; then
         exit
 fi
 
-sudo port install git-core
-
 PACKAGE_DIR=${PRODUCT}-${VERSION}
 
 git clone $GIT_URL $PACKAGE_DIR
