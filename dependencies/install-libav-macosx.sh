@@ -29,12 +29,12 @@ function unpackLibAvSources {
 }
 
 function buildLibAvFromSources {
-    ./configure --prefix=/usr/lib/bluecherry/client/ --enable-shared --disable-static --extra-cflags="-m32" --extra-ldflags="-m32" --disable-decoder=h264,svq3 --disable-parser=h264 --disable-mmx
+    ./configure --prefix=~/dev --enable-shared --disable-static --extra-cflags="-m32" --extra-ldflags="-m32" --disable-mmx --disable-debug --disable-optimizations
     make -j5
 }
 
 function installLibAvFromSources {
-    sudo make install
+    make install
 }
 
 installLibAv
