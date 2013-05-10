@@ -34,17 +34,16 @@ function unpackQtSources {
 }
 
 function buildQtFromSources {
-    ./configure -prefix /Users/vogel/dev/usr/lib/bluecherry/qt4.8/ -confirm-license -opensource \
-      -no-qt3support -no-xmlpatterns -openssl -opengl desktop -webkit -gtkstyle \
-      -nomake demos -nomake examples -no-dbus \
-      -no-multimedia -no-audio-backend -no-phonon -no-phonon-backend -no-svg \
-      -script -no-scripttools -declarative -no-declarative-debug -rpath -release \
-      -arcg x86
+    ./configure -prefix $HOME/dev/usr -confirm-license -opensource -no-qt3support \
+      -no-xmlpatterns -openssl -opengl desktop -webkit -gtkstyle -nomake demos \
+      -nomake examples -no-dbus -no-multimedia -no-audio-backend -no-phonon \
+      -no-phonon-backend -no-svg -script -no-scripttools -declarative -no-declarative-debug \
+      -rpath -release -arch x86
     make -j5
 }
 
 function installQtFromSources {
-    sudo make install
+    make install
 }
 
 installQt
