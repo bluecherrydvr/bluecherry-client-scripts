@@ -29,7 +29,7 @@ function unpackLibAvSources {
 }
 
 function buildLibAvFromSources {
-    ./configure --prefix=$HOME/dev --enable-shared --disable-static --extra-cflags="-m32" --extra-ldflags="-m32" --disable-mmx --disable-debug --disable-optimizations
+    ./configure --prefix=$HOME/dev/usr --enable-shared --disable-static --extra-cflags="-m32" --extra-ldflags="-m32" --disable-mmx --disable-debug --disable-optimizations
     make -j5
 }
 
