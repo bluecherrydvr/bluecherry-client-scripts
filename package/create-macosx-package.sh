@@ -15,6 +15,8 @@ if [ "!" == "!$VERSION" ]; then
         exit
 fi
 
+sudo port install cmake git-core
+
 PACKAGE_DIR=${PRODUCT}-${VERSION}
 
 git clone $GIT_URL $PACKAGE_DIR
@@ -24,11 +26,22 @@ git submodule init
 git submodule update
 find . -name ".git*" | xargs rm -rf
 
-$HOME/dev/usr/bin/qmake -makefile "CONFIG+=release" "LIBAV_PATH=$HOME/dev/usr/"
-make -j3
-./mac/package.sh .
+cp ../macosx.cmake ./user.cmake
 
-mv BluecherryClient.dmg ../
+mkdir build
+pushd build
+
+export QTDIR=$HOME/dev/usr
+cmake ../
+make -j3
+make deploy
+make create-symbols
+
+popd
+
+./mac/package.sh build
+
+mv BluecherryClient.dmg ../BluecherryClient-${VERSION}.dmg
 
 popd
 
