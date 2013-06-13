@@ -1,14 +1,12 @@
 #!/bin/bash
 
 QT_SRC_VERSION=4.8.4
-QT_SRC_FILE=qt-everywhere-opensource-src-$QT_SRC_VERSION.tar.gz
-QT_SRC_DIR=qt-everywhere-opensource-src-$QT_SRC_VERSION
-QT_SRC_URL=http://releases.qt-project.org/qt4/source/$QT_SRC_FILE
+QT_GIT_URL=git://gitorious.org/qt/qt.git
+QT_SRC_DIR=qt-4.8.5
 
 function installQt {
     installBuildDependencies
-    downloadQtSources
-    unpackQtSources
+    downloadQtFromGit
 
     pushd $QT_SRC_DIR
     buildQtFromSources
@@ -18,19 +16,15 @@ function installQt {
 
 function installBuildDependencies {
     # for download support
-    sudo port install wget
+    sudo port install git-core
     # for openssl support
     sudo port install libssl-dev
     # for opengl support
     sudo apt-get install libgl1-mesa-dev libglu1-mesa-dev
 }
 
-function downloadQtSources {
-    wget $QT_SRC_URL
-}
-
-function unpackQtSources {
-    tar xzf $QT_SRC_FILE
+function downloadQtFromGit {
+    git clone $QT_GIT_URL $QT_SRC_DIR
 }
 
 function buildQtFromSources {
