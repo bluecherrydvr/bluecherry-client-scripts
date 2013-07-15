@@ -36,7 +36,7 @@ PACKAGE_FILE=$PACKAGE_NAME.tar.bz2
 
 git clone $GIT_URL $PACKAGE_DIR
 pushd $PACKAGE_DIR
-git checkout GIT_TAG
+git checkout $GIT_TAG
 git submodule init
 git submodule update
 find -name ".git*" | xargs rm -rf
