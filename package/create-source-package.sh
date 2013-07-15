@@ -17,12 +17,12 @@
 
 PRODUCT=bluecherry-client
 VERSION=$1
+GIT_TAG=$2
 GIT_URL=git://github.com/vogel/bluecherry-client.git
 
 function usage
 {
-        echo "Usage: $0 package-version"
-        echo "    package-version must be a git tag name"
+        echo "Usage: $0 package-version git-tag"
 }
 
 if [ "!" == "!$VERSION" ]; then
@@ -36,7 +36,7 @@ PACKAGE_FILE=$PACKAGE_NAME.tar.bz2
 
 git clone $GIT_URL $PACKAGE_DIR
 pushd $PACKAGE_DIR
-git checkout $VERSION
+git checkout GIT_TAG
 git submodule init
 git submodule update
 find -name ".git*" | xargs rm -rf
