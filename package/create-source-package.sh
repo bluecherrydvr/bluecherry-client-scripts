@@ -43,6 +43,7 @@ find -name ".git*" | xargs rm -rf
 popd
 
 tar cjf $PACKAGE_FILE $PACKAGE_DIR
+rm -rf $PACKAGE_DIR
 md5sum $PACKAGE_FILE > $PACKAGE_FILE.md5
 sha1sum $PACKAGE_FILE > $PACKAGE_FILE.sha1
 

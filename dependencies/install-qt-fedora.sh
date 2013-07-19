@@ -19,13 +19,13 @@ function installQt {
 
 function installBuildDependencies {
     # for openssl support
-    sudo apt-get install libssl-dev
+    sudo yum install openssl-devel wget -y
     # for opengl support
-    sudo apt-get install libgl1-mesa-dev libglu1-mesa-dev
+    sudo yum install mesa-libGL-devel mesa-libGLU-devel -y
     # for webkit support
-    sudo apt-get install libxrender-dev
+    sudo yum install libXrender-devel -y
     # for gtkstyle
-    sudo apt-get install libgtk2.0-dev
+    sudo yum install gtk2-devel -y
 }
 
 function downloadQtSources {
@@ -41,7 +41,7 @@ function patchQtSources {
 }
 
 function buildQtFromSources {
-    ./configure -prefix /usr/lib/bluecherry/qt4.8/ -confirm-license -opensource \
+    ./configure -v -prefix /usr/lib/bluecherry/qt4.8/ -confirm-license -opensource \
       -no-qt3support -no-xmlpatterns -openssl -opengl desktop -webkit -gtkstyle \
       -qtlibinfix -bluecherry -nomake demos -nomake examples -no-dbus \
       -no-multimedia -no-audio-backend -no-phonon -no-phonon-backend -no-svg \

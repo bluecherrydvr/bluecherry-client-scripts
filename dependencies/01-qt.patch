@@ -1,5 +1,5 @@
---- a/qt-everywhere-opensource-src-4.8.4/src/corelib/plugin/qlibrary.cpp	2013-04-25 12:14:28.883972119 +0200
-+++ b/qt-everywhere-opensource-src-4.8.4/src/corelib/plugin/qlibrary.cpp	2013-04-25 12:00:37.299973839 +0200
+--- a/qt-everywhere-opensource-src-4.8.5/src/corelib/plugin/qlibrary.cpp	2013-04-25 12:14:28.883972119 +0200
++++ b/qt-everywhere-opensource-src-4.8.5/src/corelib/plugin/qlibrary.cpp	2013-04-25 12:00:37.299973839 +0200
 @@ -722,7 +722,7 @@
          qt_version = reg.at(0).toUInt(0, 16);
          debug = bool(reg.at(1).toInt());
