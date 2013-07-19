@@ -7,6 +7,7 @@ function installBuildDeps
                 fedora-packager \
                 git-core \
                 gcc \
+                gcc-c++ \
                 cmake \
                 yasm \
                 gstreamer \
