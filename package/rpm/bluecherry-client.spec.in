@@ -1,0 +1,74 @@
+Name:          bluecherry-client	
+Version:       ${VERSION}
+Release:       1%{?dist}
+Summary:       Bluecherry DVR Client
+
+Group:         Applications/Internet
+License:       GPLv2+
+URL:           http://www.bluecherrydvr.com/
+Source0:       http://lizard.bluecherrydvr.com/~rmalinowski/sources/stable/bluecherry-client-%{version}.tar.bz2
+Patch0:        bluecherry-client.1.build.patch
+Patch1:        bluecherry-client.2.build.patch
+Requires:      libxml2
+Requires:      gstreamer >= 0.10
+Requires:      gstreamer < 1.0
+Requires:      gstreamer-plugins-base >= 0.10
+Requires:      gstreamer-plugins-base < 1.0
+BuildRequires: cmake
+
+%description
+This package contains the client for the Bluecherry DVR system. It can
+also be used to connect to remote instances of the Bluecherry DVR server
+
+%prep
+%setup
+%patch0 -p1
+%patch1 -p1
+
+%build
+export PATH=/usr/lib/bluecherry/qt4.8/bin:$PATH
+export LD_LIBRARY_PATH=/usr/lib/bluecherry/client/lib:${LD_LIBRARY_PATH}
+
+cp /home/vogel/dev/bluecherry-client-scripts/package/debian.cmake ./user.cmake
+%cmake -DENABLE_BREAKPAD=OFF -DGSTREAMER_PLUGIN_PATHS=/usr/lib/bluecherry/gst/lib/gstreamer-0.10/
+make %{?_smp_mflags}
+
+%install
+make install DESTDIR=%{buildroot}
+
+mkdir -p %{buildroot}/usr/lib/bluecherry/qt4.8/lib
+cp -a /usr/lib/bluecherry/qt4.8/lib/libQtCore*.so* %{buildroot}/usr/lib/bluecherry/qt4.8/lib/
+cp -a /usr/lib/bluecherry/qt4.8/lib/libQtGui*.so* %{buildroot}/usr/lib/bluecherry/qt4.8/lib/
+cp -a /usr/lib/bluecherry/qt4.8/lib/libQtDeclarative*.so* %{buildroot}/usr/lib/bluecherry/qt4.8/lib/
+cp -a /usr/lib/bluecherry/qt4.8/lib/libQtNetwork*.so* %{buildroot}/usr/lib/bluecherry/qt4.8/lib/
+cp -a /usr/lib/bluecherry/qt4.8/lib/libQtOpenGL*.so* %{buildroot}/usr/lib/bluecherry/qt4.8/lib/
+cp -a /usr/lib/bluecherry/qt4.8/lib/libQtScript*.so* %{buildroot}/usr/lib/bluecherry/qt4.8/lib/
+cp -a /usr/lib/bluecherry/qt4.8/lib/libQtSql*.so* %{buildroot}/usr/lib/bluecherry/qt4.8/lib/
+cp -a /usr/lib/bluecherry/qt4.8/lib/libQtWebKit*.so* %{buildroot}/usr/lib/bluecherry/qt4.8/lib/
+
+mkdir -p %{buildroot}/usr/lib/bluecherry/qt4.8/plugins/imageformats
+cp -a /usr/lib/bluecherry/qt4.8/plugins/imageformats/libqjpeg.so %{buildroot}/usr/lib/bluecherry/qt4.8/plugins/imageformats
+cp -a /usr/lib/bluecherry/qt4.8/plugins/imageformats/libqgif.so %{buildroot}/usr/lib/bluecherry/qt4.8/plugins/imageformats
+
+mkdir -p %{buildroot}/usr/lib/bluecherry/client/lib
+cp -a /usr/lib/bluecherry/client/lib/libavformat.so* %{buildroot}/usr/lib/bluecherry/client/lib/
+cp -a /usr/lib/bluecherry/client/lib/libavcodec.so* %{buildroot}/usr/lib/bluecherry/client/lib/
+cp -a /usr/lib/bluecherry/client/lib/libavutil.so* %{buildroot}/usr/lib/bluecherry/client/lib/
+cp -a /usr/lib/bluecherry/client/lib/libswscale.so* %{buildroot}/usr/lib/bluecherry/client/lib/
+
+mkdir -p %{buildroot}/usr/lib/bluecherry/gst/lib/gstreamer-0.10
+cp -rp /usr/lib/bluecherry/gst/lib/gstreamer-0.10/*.so* %{buildroot}/usr/lib/bluecherry/gst/lib/gstreamer-0.10/
+
+for LIB in `find  %{buildroot}/usr/lib/ -name *.so`
+do
+  prelink -u $LIB || true
+done
+
+%files
+%defattr(-,root,root,-)
+/usr/bin/bluecherry-client
+/usr/share/applications/bluecherry-client.desktop
+/usr/share/icons/bluecherry-client.png
+/usr/lib/bluecherry/*
+
+%changelog

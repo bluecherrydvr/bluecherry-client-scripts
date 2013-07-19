@@ -1,0 +1,16 @@
+diff -ruN bluecherry-client-2.1.2.orig/user.cmake bluecherry-client-2.1.2/user.cmake
+--- bluecherry-client-2.1.2.orig/user.cmake     1969-12-31 19:00:00.000000000 -0500
++++ bluecherry-client-2.1.2/user.cmake  2013-06-25 11:58:29.505544263 -0400
+@@ -0,0 +1,12 @@
++set (LIBAVCODEC_INCLUDE_DIRS /usr/lib/bluecherry/client/include)
++set (LIBAVCODEC_LIBRARY_DIRS /usr/lib/bluecherry/client/lib)
++set (LIBAVFORMAT_INCLUDE_DIRS /usr/lib/bluecherry/client/include)
++set (LIBAVFORMAT_LIBRARY_DIRS /usr/lib/bluecherry/client/lib)
++set (LIBAVUTIL_INCLUDE_DIRS /usr/lib/bluecherry/client/include)
++set (LIBAVUTIL_LIBRARY_DIRS /usr/lib/bluecherry/client/lib)
++set (LIBSWSCALE_INCLUDE_DIRS /usr/lib/bluecherry/client/include)
++set (LIBSWSCALE_LIBRARY_DIRS /usr/lib/bluecherry/client/lib)
++set (LINUX_BREAKPAD_DIR ~/dev/breakpad)
++set (GSTREAMER_PLUGIN_PATHS /usr/lib/bluecherry/gst/lib/gstreamer-0.10/)
++set (BUILD_TESTING OFF)
++
