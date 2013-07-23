@@ -18,3 +18,13 @@
          if (qt_debug_component()) {
              qWarning("In %s:\n"
                   "  Plugin uses incompatible Qt library (%d.%d.%d) [%s]",
+--- a/qt-everywhere-opensource-src-4.8.5/src/3rdparty/webkit/Source/common.pri	2013-06-07 01:16:58.000000000 -0400
++++ b/qt-everywhere-opensource-src-4.8.5/src/3rdparty/webkit/Source/common.pri	2013-07-16 16:02:18.458414176 -0400
+@@ -6,7 +6,6 @@
+ linux-g++ {
+ isEmpty($$(SBOX_DPKG_INST_ARCH)):exists(/usr/bin/ld.gold) {
+     message(Using gold linker)
+-    QMAKE_LFLAGS+=-fuse-ld=gold
+ }
+ }
+ 
