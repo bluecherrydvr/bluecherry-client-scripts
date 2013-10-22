@@ -20,11 +20,11 @@ function installBreakpad {
 }
 
 function installBuildDependencies {
-    sudo apt-get install subversion gcc g++ autotools
+    sudo apt-get install subversion gcc g++ automake1.10
 }
 
 function downloadBreakpadSources {
-    svn co -r677 $BREAKPAD_SRC_REPOSITORY $BREAKPAD_SRC_DIR
+    svn co -r1223 $BREAKPAD_SRC_REPOSITORY $BREAKPAD_SRC_DIR
 }
 
 function updateMakefileFor64bit {
