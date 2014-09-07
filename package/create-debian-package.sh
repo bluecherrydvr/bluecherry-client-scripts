@@ -2,7 +2,7 @@
 
 PRODUCT=bluecherry-client
 VERSION=$1
-GIT_URL=git://github.com/vogel/bluecherry-client.git
+GIT_URL=git://github.com/bluecherrydvr/bluecherry-client.git
 
 function usage
 {
