@@ -9,13 +9,6 @@ function installBreakpad {
 
     pushd $BREAKPAD_SRC_DIR
     buildFromSources
-    pushd src/tools/linux/dump_syms
-    ARCH=`uname -p`
-    if [ "$ARCH" == "x86_64" ]; then
-        updateMakefileFor64bit
-    fi
-    buildFromSources
-    popd
     popd
 }
 
@@ -27,9 +20,6 @@ function downloadBreakpadSources {
     svn co -r1223 $BREAKPAD_SRC_REPOSITORY $BREAKPAD_SRC_DIR
 }
 
-function updateMakefileFor64bit {
-    sed -i "s/-m32//g" Makefile
-}
 
 function buildFromSources {
     ./configure --disable-shared
