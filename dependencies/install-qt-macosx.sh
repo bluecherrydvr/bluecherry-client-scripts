@@ -1,6 +1,6 @@
 #!/bin/bash
 
-QT_SRC_VERSION=4.8.5
+QT_SRC_VERSION=4.8.6
 QT_SRC_FILE=qt-everywhere-opensource-src-$QT_SRC_VERSION.tar.gz
 QT_SRC_DIR=qt-everywhere-opensource-src-$QT_SRC_VERSION
 QT_SRC_URL=http://download.qt-project.org/archive/qt/4.8/${QT_SRC_VERSION}/$QT_SRC_FILE
