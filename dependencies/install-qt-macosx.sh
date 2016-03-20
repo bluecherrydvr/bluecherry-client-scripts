@@ -1,9 +1,9 @@
 #!/bin/bash
 
-QT_SRC_VERSION=4.8.6
+QT_SRC_VERSION=4.8.7
 QT_SRC_FILE=qt-everywhere-opensource-src-$QT_SRC_VERSION.tar.gz
 QT_SRC_DIR=qt-everywhere-opensource-src-$QT_SRC_VERSION
-QT_SRC_URL=http://download.qt-project.org/archive/qt/4.8/${QT_SRC_VERSION}/$QT_SRC_FILE
+QT_SRC_URL=http://download.qt.io/official_releases/qt/4.8/${QT_SRC_VERSION}/$QT_SRC_FILE
 
 
 function installQt {
@@ -35,7 +35,7 @@ function buildQtFromSources {
       -nomake examples -no-multimedia -no-audio-backend -no-phonon \
       -no-phonon-backend -no-svg -script -no-scripttools -declarative -no-declarative-debug \
       -rpath -release -arch x86
-    make -j5
+    make -j4
 }
 
 function installQtFromSources {
