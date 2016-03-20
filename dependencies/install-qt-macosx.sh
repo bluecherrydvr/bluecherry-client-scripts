@@ -18,7 +18,7 @@ function installQt {
 }
 
 function installBuildDependencies {
-    sudo port install wget
+    wget --version 2>&1 1>/dev/null || sudo port install wget
 }
 
 function downloadQtSources {
