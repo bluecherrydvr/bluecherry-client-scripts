@@ -32,7 +32,7 @@ function unpackQtSources {
 function buildQtFromSources {
     ./configure -prefix $HOME/dev/usr -confirm-license -opensource -no-qt3support \
       -no-xmlpatterns -openssl -opengl desktop -webkit -gtkstyle -nomake demos \
-      -nomake examples -no-multimedia -no-audio-backend -no-phonon \
+      -nomake examples -nomake docs -no-multimedia -no-audio-backend -no-phonon \
       -no-phonon-backend -no-svg -script -no-scripttools -declarative -no-declarative-debug \
       -rpath -release -arch x86
     make -j4
