@@ -13,7 +13,7 @@ function installBreakpad {
 }
 
 function installBuildDependencies {
-    sudo apt-get install subversion gcc g++ automake1.10
+    sudo apt-get install subversion make gcc g++ automake
 }
 
 function downloadBreakpadSources {
