@@ -36,7 +36,7 @@ export PATH="$HOME/dev/usr/bin:${PATH}"
 
 #use GCC, not clang
 CXX=/usr/bin/g++ cmake ../
-make -j3
+make
 make deploy
 make create-symbols
 
