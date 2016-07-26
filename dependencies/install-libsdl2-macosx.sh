@@ -30,7 +30,7 @@ function unpackLibSDLSources {
 }
 
 function patchLibSDLSources {
-    patch -p1 < 01-sdl.patch
+    patch -p0 < 01-sdl.patch
 }
 
 
