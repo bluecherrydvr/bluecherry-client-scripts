@@ -1,0 +1,12 @@
+--- SDL2-2.0.4/src/video/SDL_video.c    2016-01-02 13:56:31.000000000 -0600
++++ SDL2-2.0.4_patched/src/video/SDL_video.c    2016-07-25 19:27:37.000000000 -0500
+@@ -139,8 +139,8 @@
+ 
+ #ifdef __MACOSX__
+ /* Support for Mac OS X fullscreen spaces */
+-extern SDL_bool Cocoa_IsWindowInFullscreenSpace(SDL_Window * window);
+-extern SDL_bool Cocoa_SetWindowFullscreenSpace(SDL_Window * window, SDL_bool state);
++ SDL_bool Cocoa_IsWindowInFullscreenSpace(SDL_Window * window) { return SDL_TRUE; }
++ SDL_bool Cocoa_SetWindowFullscreenSpace(SDL_Window * window, SDL_bool state) {return SDL_TRUE;}
+ #endif
+ 
