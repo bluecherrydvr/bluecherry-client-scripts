@@ -30,11 +30,11 @@ function unpackQtSources {
 }
 
 function buildQtFromSources {
-    ./configure -prefix $HOME/dev/usr -confirm-license -opensource -no-qt3support \
+    ./configure -prefix $HOME/qt -confirm-license -opensource -no-qt3support \
       -no-xmlpatterns -openssl -opengl desktop -webkit -gtkstyle -nomake demos \
       -nomake examples -nomake docs -no-multimedia -no-audio-backend -no-phonon \
       -no-phonon-backend -no-svg -script -no-scripttools -declarative -no-declarative-debug \
-      -rpath -release -arch x86
+      -rpath -release 
     make -j4
 }
 
