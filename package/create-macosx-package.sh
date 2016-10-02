@@ -15,7 +15,6 @@ if [ "!" == "!$VERSION" ]; then
         exit
 fi
 
-sudo port install cmake git-core
 
 PACKAGE_DIR=${PRODUCT}-${VERSION}
 
