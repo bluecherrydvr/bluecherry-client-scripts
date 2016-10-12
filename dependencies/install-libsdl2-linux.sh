@@ -34,7 +34,7 @@ function buildLibSDLFromSources {
 }
 
 function installLibSDLFromSources {
-    sudo make install
+    make install
 }
 
 installLibSDL
