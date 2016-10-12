@@ -29,7 +29,7 @@ function unpackLibSDLSources {
 }
 
 function buildLibSDLFromSources {
-   ./configure --prefix=/home/user/SDL_prefix --disable-shared --enable-static --enable-audio --disable-video --disable-render --disable-joystick --disable-haptic --enable-alsa 
+   ./configure --prefix=$HOME/SDL_prefix --disable-shared --enable-static --enable-audio --disable-video --disable-render --disable-joystick --disable-haptic --enable-alsa 
    make -j8
 }
 
