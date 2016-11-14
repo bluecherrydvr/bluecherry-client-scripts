@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FFMPEG_SRC_VERSION=2.4
+FFMPEG_SRC_VERSION=3.2
 FFMPEG_SRC_FILE=ffmpeg-$FFMPEG_SRC_VERSION.tar.bz2
 FFMPEG_SRC_DIR=ffmpeg-$FFMPEG_SRC_VERSION
 FFMPEG_SRC_URL=http://ffmpeg.org/releases/$FFMPEG_SRC_FILE
@@ -29,7 +29,7 @@ function unpackFFmpegSources {
 }
 
 function buildFFmpegFromSources {
-    ./configure --prefix=$HOME/dev/usr --enable-shared --disable-static --extra-cflags="-m32" --extra-ldflags="-m32" --disable-mmx --disable-debug --disable-optimizations --disable-programs --disable-doc
+    ./configure --prefix=$HOME/dev/usr --enable-shared --disable-static --disable-mmx --disable-debug --disable-optimizations --disable-programs --disable-doc --enable-pic --enable-protocol=file --enable-protocol=pipe --enable-protocol=http --enable-muxer=matroska --enable-muxer=mjpeg --enable-muxer=rtp --enable-demuxer=rtsp --enable-demuxer=matroska --enable-demuxer=mjpeg --enable-decoder=h264 --enable-decoder=mpeg4 --enable-decoder=mjpeg --enable-parser=h264 --enable-parser=mpeg4video --enable-parser=mjpeg --enable-encoder=mjpeg
 
     make -j8
 }
