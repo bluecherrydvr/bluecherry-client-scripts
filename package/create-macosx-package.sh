@@ -30,8 +30,8 @@ cp ../macosx.cmake ./user.cmake
 mkdir build
 pushd build
 
-export QTDIR=$HOME/dev/usr
-export PATH="$HOME/dev/usr/bin:${PATH}"
+export QTDIR=$HOME/qt
+export PATH="$HOME/qt/bin:${PATH}"
 
 #use GCC, not clang
 CXX=/usr/bin/g++ cmake ../
