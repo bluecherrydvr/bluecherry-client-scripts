@@ -1,5 +1,5 @@
---- SDL2-2.0.4/src/video/SDL_video.c    2016-01-02 13:56:31.000000000 -0600
-+++ SDL2-2.0.4_patched/src/video/SDL_video.c    2016-07-25 19:27:37.000000000 -0500
+--- SDL2-2.0.5/src/video/SDL_video.c    2016-01-02 13:56:31.000000000 -0600
++++ SDL2-2.0.5_patched/src/video/SDL_video.c    2016-07-25 19:27:37.000000000 -0500
 @@ -139,8 +139,8 @@
  
  #ifdef __MACOSX__
