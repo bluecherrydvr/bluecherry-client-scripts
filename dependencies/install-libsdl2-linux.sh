@@ -17,7 +17,7 @@ function installLibSDL {
 }
 
 function installBuildDependencies {
-    sudo apt-get install libasound2-dev
+    #sudo apt-get install libasound2-dev
 }
 
 function downloadLibSDLSources {
