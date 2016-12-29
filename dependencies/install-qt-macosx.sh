@@ -30,11 +30,18 @@ function unpackQtSources {
 }
 
 function buildQtFromSources {
-    ./configure -prefix $HOME/qt -confirm-license -opensource -no-qt3support \
+    if [ -e $HOME/dev/clang/bin/clang++ ]; then
+      COMPILER=$HOME/dev/clang/bin/clang++
+    else
+      COMPILER=/usr/bin/g++
+    fi
+
+    CXX=$COMPILER ./configure -prefix $HOME/qt -confirm-license -opensource -no-qt3support \
       -no-xmlpatterns -openssl -opengl desktop -webkit -gtkstyle -nomake demos \
       -nomake examples -nomake docs -no-multimedia -no-audio-backend -no-phonon \
       -no-phonon-backend -no-svg -script -no-scripttools -declarative -no-declarative-debug \
       -rpath -release 
+
     make -j4
 }
 

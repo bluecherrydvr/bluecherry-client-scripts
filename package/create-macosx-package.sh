@@ -33,8 +33,14 @@ pushd build
 export QTDIR=$HOME/qt
 export PATH="$HOME/qt/bin:${PATH}"
 
-#use GCC, not clang
-CXX=/usr/bin/g++ cmake ../
+if [ -e $HOME/dev/clang/bin/clang++ ]; then
+  COMPILER=$HOME/dev/clang/bin/clang++
+else
+  COMPILER=/usr/bin/g++
+fi
+
+CXX=$COMPILER cmake ../
+
 make
 make deploy
 make create-symbols
