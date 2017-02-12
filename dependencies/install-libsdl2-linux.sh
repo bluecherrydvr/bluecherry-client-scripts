@@ -29,7 +29,7 @@ function unpackLibSDLSources {
 }
 
 function buildLibSDLFromSources {
-   ./configure --prefix=$HOME/SDL_prefix --disable-shared --enable-static --enable-audio --disable-video --disable-render --disable-joystick --disable-haptic --disable-power  --disable-oss --enable-alsa --disable-video-dummy --disable-libudev --disable-dbus --disable-ibus --disable-nas --disable-sndio --disable-esd --disable-input-tslib --disable-pulseaudio --disable-diskaudio --disable-dummyaudio
+   ./configure --prefix=$HOME/SDL_prefix --disable-shared --enable-static --enable-audio --disable-video --disable-render --disable-joystick --disable-haptic --disable-power  --disable-oss --enable-alsa --disable-video-dummy --disable-libudev --disable-dbus --disable-ibus --disable-nas --disable-sndio --disable-esd --disable-input-tslib --disable-diskaudio --disable-dummyaudio
    make -j8
 }
 
