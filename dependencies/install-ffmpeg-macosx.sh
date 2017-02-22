@@ -33,7 +33,7 @@ function buildFFmpegFromSources {
     CLANG_OPTIONS="--cc=$HOME/dev/clang/bin/clang --cxx=$HOME/dev/clang/bin/clang++"
     fi
 
-    ./configure --prefix=$HOME/dev/usr $CLANG_OPTIONS --yasmexe=/opt/local/bin/yasm --enable-shared --disable-static --disable-mmx --disable-debug --disable-optimizations --disable-programs --disable-doc --enable-pic --enable-protocol=file --enable-protocol=pipe --enable-protocol=http --enable-muxer=matroska --enable-muxer=mjpeg --enable-muxer=rtp --enable-demuxer=rtsp --enable-demuxer=matroska --enable-demuxer=mjpeg --enable-decoder=h264 --enable-decoder=mpeg4 --enable-decoder=mjpeg --enable-parser=h264 --enable-parser=mpeg4video --enable-parser=mjpeg --enable-encoder=mjpeg
+    ./configure --prefix=$HOME/dev/usr $CLANG_OPTIONS --yasmexe=/opt/local/bin/yasm --enable-shared --disable-static --disable-programs --disable-doc --enable-pic --enable-protocol=file --enable-protocol=pipe --enable-protocol=http --enable-muxer=matroska --enable-muxer=mjpeg --enable-muxer=rtp --enable-demuxer=rtsp --enable-demuxer=matroska --enable-demuxer=mjpeg --enable-decoder=h264 --enable-decoder=mpeg4 --enable-decoder=mjpeg --enable-parser=h264 --enable-parser=mpeg4video --enable-parser=mjpeg --enable-encoder=mjpeg
 
     make -j8
 }
