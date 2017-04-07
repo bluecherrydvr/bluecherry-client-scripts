@@ -13,9 +13,9 @@ function downloadClang {
 }
 
 function unpackClang {
-	mkdir -p $HOME/dev/
-    tar xf clang+llvm-$CLANG_VERSION-x86_64-apple-darwin.tar.xz -C $HOME/dev/
-    mv $HOME/dev/clang+llvm-$CLANG_VERSION-x86_64-apple-darwin $HOME/dev/clang
+	mkdir -p $HOME/bc-dev/
+    tar xf clang+llvm-$CLANG_VERSION-x86_64-apple-darwin.tar.xz -C $HOME/bc-dev/
+    mv $HOME/bc-dev/clang+llvm-$CLANG_VERSION-x86_64-apple-darwin $HOME/bc-dev/clang
 }
 
 installClang

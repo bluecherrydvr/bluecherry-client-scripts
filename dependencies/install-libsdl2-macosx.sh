@@ -31,11 +31,11 @@ function patchLibSDLSources {
 
 
 function buildLibSDLFromSources {
-    if [ -e $HOME/dev/clang/bin/clang ] && [ -e $HOME/dev/clang/bin/clang++ ]; then
-    CLANG_OPTIONS="CC=$HOME/dev/clang/bin/clang CXX=$HOME/dev/clang/bin/clang++"
+    if [ -e $HOME/bc-dev/clang/bin/clang ] && [ -e $HOME/bc-dev/clang/bin/clang++ ]; then
+    CLANG_OPTIONS="CC=$HOME/bc-dev/clang/bin/clang CXX=$HOME/bc-dev/clang/bin/clang++"
     fi
 
-   ./configure --prefix=$HOME/SDL_prefix $CLANG_OPTIONS --disable-shared --enable-static --enable-audio --disable-video --disable-render --disable-joystick --disable-haptic --disable-power --disable-events --enable-timers --disable-dummyaudio --disable-diskaudio --disable-libc --disable-video-cocoa
+   ./configure --prefix=$HOME/bc-dev/SDL_prefix $CLANG_OPTIONS --disable-shared --enable-static --enable-audio --disable-video --disable-render --disable-joystick --disable-haptic --disable-power --disable-events --enable-timers --disable-dummyaudio --disable-diskaudio --disable-libc --disable-video-cocoa
 
 #CFLAGS="-arch i386" LDFLAGS="-arch i386"
 

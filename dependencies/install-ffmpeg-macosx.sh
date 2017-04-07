@@ -29,11 +29,11 @@ function unpackFFmpegSources {
 }
 
 function buildFFmpegFromSources {
-    if [ -e $HOME/dev/clang/bin/clang ] && [ -e $HOME/dev/clang/bin/clang++ ]; then
-    CLANG_OPTIONS="--cc=$HOME/dev/clang/bin/clang --cxx=$HOME/dev/clang/bin/clang++"
+    if [ -e $HOME/bc-dev/clang/bin/clang ] && [ -e $HOME/bc-dev/clang/bin/clang++ ]; then
+    CLANG_OPTIONS="--cc=$HOME/bc-dev/clang/bin/clang --cxx=$HOME/bc-dev/clang/bin/clang++"
     fi
 
-    ./configure --prefix=$HOME/dev/usr $CLANG_OPTIONS --yasmexe=/opt/local/bin/yasm --enable-shared --disable-static --disable-programs --disable-doc --enable-pic --enable-protocol=file --enable-protocol=pipe --enable-protocol=http --enable-muxer=matroska --enable-muxer=mjpeg --enable-muxer=rtp --enable-demuxer=rtsp --enable-demuxer=matroska --enable-demuxer=mjpeg --enable-decoder=h264 --enable-decoder=mpeg4 --enable-decoder=mjpeg --enable-parser=h264 --enable-parser=mpeg4video --enable-parser=mjpeg --enable-encoder=mjpeg
+    ./configure --prefix=$HOME/bc-dev/ffmpeg $CLANG_OPTIONS --yasmexe=/opt/local/bin/yasm --enable-shared --disable-static --disable-programs --disable-doc --enable-pic --enable-protocol=file --enable-protocol=pipe --enable-protocol=http --enable-muxer=matroska --enable-muxer=mjpeg --enable-muxer=rtp --enable-demuxer=rtsp --enable-demuxer=matroska --enable-demuxer=mjpeg --enable-decoder=h264 --enable-decoder=mpeg4 --enable-decoder=mjpeg --enable-parser=h264 --enable-parser=mpeg4video --enable-parser=mjpeg --enable-encoder=mjpeg
 
     make -j8
 }

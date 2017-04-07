@@ -30,8 +30,8 @@ function unpackQtSources {
 }
 
 function buildQtFromSources {
-    if [ -e $HOME/dev/clang/bin/clang++ ]; then
-      COMPILER=$HOME/dev/clang/bin/clang++
+    if [ -e $HOME/bc-dev/clang/bin/clang++ ]; then
+      COMPILER=$HOME/bc-dev/clang/bin/clang++
     else
       COMPILER=/usr/bin/g++
     fi
