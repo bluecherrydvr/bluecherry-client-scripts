@@ -19,6 +19,7 @@ function installBuildDependencies {
 
 function downloadLibMPVSources {
     git clone $LIBMPV_SRC_URL
+    git checkout v0.24.0
 }
 
 function buildLibMPVFromSources {
