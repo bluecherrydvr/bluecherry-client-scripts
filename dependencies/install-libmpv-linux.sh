@@ -19,17 +19,23 @@ function installBuildDependencies {
 
 function downloadLibMPVSources {
     git clone $LIBMPV_SRC_URL
-    git checkout v0.24.0
 }
 
 function buildLibMPVFromSources {
 
+    git checkout 'v0.25.0'
     ./bootstrap.py
 
     PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/bluecherry/client/lib/pkgconfig \
     CFLAGS="-I/usr/lib/bluecherry/client/include" \
     LDFLAGS="-L/usr/lib/bluecherry/client/lib -Wl,-rpath,/usr/lib/bluecherry/client/lib" \
-    ./waf configure --prefix=$HOME/bc-dev/libmpv --disable-cplayer --enable-libmpv-shared --disable-libass --disable-manpage-build
+    ./waf configure --prefix=$HOME/bc-dev/libmpv --disable-cplayer --enable-libmpv-static --disable-libass --disable-manpage-build \
+    --disable-libarchive --disable-html-build --disable-pdf-build --disable-iconv --disable-termios --disable-shm --disable-libsmbclient \
+    --disable-lua --disable-encoding --disable-libbluray --disable-dvdread --disable-dvdnav --disable-cdda --disable-uchardet --disable-rubberband \
+    --disable-lcms2 --disable-vapoursynth --disable-vapoursynth-lazy --disable-libavdevice --disable-oss-audio --disable-rsound --disable-sndio \
+    --disable-jack --disable-openal --disable-opensles --disable-wayland --disable-caca --disable-drm --disable-gbm \
+    --disable-egl-x11 --disable-egl-drm --disable-gl-wayland --disable-vdpau --disable-vdpau-hwaccel --disable-cuda-hwaccel \
+    --disable-libv4l2 --disable-tv-v4l2 --disable-tv --disable-dvbin --disable-audio-input --disable-jpeg
 
     ./waf build
 }
