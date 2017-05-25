@@ -35,7 +35,7 @@ function buildLibMPVFromSources {
     --disable-lcms2 --disable-vapoursynth --disable-vapoursynth-lazy --disable-libavdevice --disable-oss-audio --disable-rsound --disable-sndio \
     --disable-jack --disable-openal --disable-opensles --disable-wayland --disable-caca --disable-drm --disable-gbm \
     --disable-egl-x11 --disable-egl-drm --disable-gl-wayland --disable-vdpau --disable-vdpau-hwaccel --disable-cuda-hwaccel \
-    --disable-libv4l2 --disable-tv-v4l2 --disable-tv --disable-dvbin --disable-audio-input --disable-jpeg
+    --disable-libv4l2 --disable-tv-v4l2 --disable-tv --disable-dvbin --disable-audio-input --disable-jpeg --disable-pulse
 
     ./waf build
 }
