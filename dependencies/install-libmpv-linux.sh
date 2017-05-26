@@ -14,7 +14,23 @@ function installLibMPV {
 }
 
 function installBuildDependencies {
-    echo "no dependencies"
+    libAss
+}
+
+function libAss {
+   git clone https://github.com/libass/libass.git
+   pushd libass
+   buildLibAss
+   popd
+}
+
+function buildLibAss {
+   git checkout '0.13.6'
+   ./autogen.sh
+   #PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:$HOME/bc-dev/lib/pkgconfig \
+   ./configure --prefix=$HOME/bc-dev --enable-static --disable-shared \
+    --disable-harfbuzz --disable-fontconfig --disable-require-system-font-provider --disable-asm
+   make && make install
 }
 
 function downloadLibMPVSources {
@@ -26,10 +42,10 @@ function buildLibMPVFromSources {
     git checkout 'v0.25.0'
     ./bootstrap.py
 
-    PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/bluecherry/client/lib/pkgconfig \
+    PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/bluecherry/client/lib/pkgconfig:$HOME/bc-dev/lib/pkgconfig \
     CFLAGS="-I/usr/lib/bluecherry/client/include" \
     LDFLAGS="-L/usr/lib/bluecherry/client/lib -Wl,-rpath,/usr/lib/bluecherry/client/lib" \
-    ./waf configure --prefix=$HOME/bc-dev/libmpv --disable-cplayer --enable-libmpv-static --disable-libass --disable-manpage-build \
+    ./waf configure --prefix=$HOME/bc-dev --disable-cplayer --enable-libmpv-static --enable-libass --disable-manpage-build \
     --disable-libarchive --disable-html-build --disable-pdf-build --disable-iconv --disable-termios --disable-shm --disable-libsmbclient \
     --disable-lua --disable-encoding --disable-libbluray --disable-dvdread --disable-dvdnav --disable-cdda --disable-uchardet --disable-rubberband \
     --disable-lcms2 --disable-vapoursynth --disable-vapoursynth-lazy --disable-libavdevice --disable-oss-audio --disable-rsound --disable-sndio \
