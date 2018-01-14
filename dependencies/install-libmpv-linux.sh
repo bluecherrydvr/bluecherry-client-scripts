@@ -39,7 +39,7 @@ function downloadLibMPVSources {
 
 function buildLibMPVFromSources {
 
-    git checkout 'v0.25.0'
+    git checkout 'v0.26.0'
     ./bootstrap.py
 
     PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/bluecherry/client/pkgconfig:$HOME/bc-dev/lib/pkgconfig \
