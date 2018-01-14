@@ -14,6 +14,7 @@ function installLibMPV {
 }
 
 function installBuildDependencies {
+    sudo apt-get install libxinerama-dev libxrandr-dev libxext-dev x11proto-core-dev libxss-dev
     libAss
 }
 
@@ -42,16 +43,16 @@ function buildLibMPVFromSources {
     git checkout 'v0.26.0'
     ./bootstrap.py
 
-    PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/bluecherry/client/pkgconfig:$HOME/bc-dev/lib/pkgconfig \
-    CFLAGS="-I/usr/lib/bluecherry/client/include" \
-    LDFLAGS="-L/usr/lib/bluecherry/client/lib -Wl,-rpath,/usr/lib/bluecherry/client" \
-    ./waf configure --prefix=$HOME/bc-dev --disable-cplayer --enable-libmpv-static --enable-libass --disable-manpage-build \
+    PKG_CONFIG_PATH=$HOME/bc-dev/lib/pkgconfig:/usr/lib/bluecherry/client/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig \
+    CFLAGS="-I $HOME/bc-dev/include" \
+    LDFLAGS="-L/usr/lib/bluecherry/client -Wl,-rpath,/usr/lib/bluecherry/client" \
+    ./waf configure --prefix=$HOME/bc-dev --enable-gl-x11 --enable-xv --enable-libmpv-static --enable-libass --disable-manpage-build \
     --disable-libarchive --disable-html-build --disable-pdf-build --disable-iconv --disable-termios --disable-shm --disable-libsmbclient \
     --disable-lua --disable-encoding --disable-libbluray --disable-dvdread --disable-dvdnav --disable-cdda --disable-uchardet --disable-rubberband \
     --disable-lcms2 --disable-vapoursynth --disable-vapoursynth-lazy --disable-libavdevice --disable-oss-audio --disable-rsound --disable-sndio \
     --disable-jack --disable-openal --disable-opensles --disable-wayland --disable-caca --disable-drm --disable-gbm \
     --disable-egl-x11 --disable-egl-drm --disable-gl-wayland --disable-vdpau --disable-vdpau-hwaccel --disable-cuda-hwaccel \
-    --disable-libv4l2 --disable-tv-v4l2 --disable-tv --disable-dvbin --disable-audio-input --disable-jpeg --disable-pulse
+    --disable-libv4l2 --disable-tv-v4l2 --disable-tv --disable-dvbin --disable-audio-input --disable-jpeg --disable-pulse  --disable-zlib
 
     ./waf build
 }
