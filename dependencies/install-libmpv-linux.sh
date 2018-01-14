@@ -42,9 +42,9 @@ function buildLibMPVFromSources {
     git checkout 'v0.25.0'
     ./bootstrap.py
 
-    PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/bluecherry/client/lib/pkgconfig:$HOME/bc-dev/lib/pkgconfig \
+    PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/lib/bluecherry/client/pkgconfig:$HOME/bc-dev/lib/pkgconfig \
     CFLAGS="-I/usr/lib/bluecherry/client/include" \
-    LDFLAGS="-L/usr/lib/bluecherry/client/lib -Wl,-rpath,/usr/lib/bluecherry/client/lib" \
+    LDFLAGS="-L/usr/lib/bluecherry/client/lib -Wl,-rpath,/usr/lib/bluecherry/client" \
     ./waf configure --prefix=$HOME/bc-dev --disable-cplayer --enable-libmpv-static --enable-libass --disable-manpage-build \
     --disable-libarchive --disable-html-build --disable-pdf-build --disable-iconv --disable-termios --disable-shm --disable-libsmbclient \
     --disable-lua --disable-encoding --disable-libbluray --disable-dvdread --disable-dvdnav --disable-cdda --disable-uchardet --disable-rubberband \
